@@ -1,0 +1,12 @@
+site_name: NOMAD Docs
+theme:
+  name: material
+  palette:
+    primary: purple
+nav:
+  - Home: index.md
+  - Setup: setup.md
+  - Tutorials:
+      - Reading Data: reading-data.md
+      - Filtering: filtering.md
+      - Stop Detection: stop-detection.md

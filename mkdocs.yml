@@ -7,6 +7,6 @@ nav:
   - Home: index.md
   - Setup: setup.md
   - Tutorials:
-      - Reading Data: reading-data.md
-      - Filtering: filtering.md
-      - Stop Detection: stop-detection.md
+      - 1. Reading Data: reading-data.md
+      - 2. Filtering: filtering.md
+      - 3. Stop Detection: stop-detection.md

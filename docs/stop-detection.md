@@ -1,4 +1,4 @@
-# Tutorial 2: Stop detection in trajectories
+# Tutorial 3: Stop detection in trajectories
 
 This notebook shows how to process device-level trajectory data, in different formats, to detect stops using ```nomad```. Stop detection is an important step in
 pre-processing trajectory data and in making sense of trajectories by grouping together pings that reflect stationary behavior. The output of stop-detection algorithms is commonly a "stop table", indicating when a stop started, its duration, and a pair of coordinates that approximates the location of the group of pings (typically the centroid). Alternatively, ```nomad``` allows users to retrieve a cluster label for each ping (useful for plotting, for example).
@@ -129,9 +129,7 @@ The first stop detection algorithm implemented in ```nomad``` is a sequential al
 
 The algorithm identifies stops as contiguous sequences of pings that stay within the roaming distance for at least the duration of the stop duration.
 
-<div style="text-align: center;">
-    <img src="lachesis_algo.png" alt="Lachesis Algorithm" title="Lachesis Algorithm" width="500">
-</div>
+![png](filtering_files/lachesis_algo.png)
 
 This algorithm has the following parameters, which determine the size of the resulting stops:
 * ```dur_min```: Minimum duration for a stay in minutes.
@@ -295,9 +293,7 @@ The second stop detection algorithm implemented in ```nomad``` is a time-augment
 
 If a region contains fewer than minimum number of points required, it is treated as noise. The algorithm identifies clusters by grouping contiguous pings that meet both the temporal and spatial criteria, while also ensuring that each cluster has enough density to be considered valid. Our implementation of Temporal DBSCAN recursively processes the clusters obtained from DBSCAN to address the issue of some clusters overlapping in time.
 
-<div style="text-align: center;">
-    <img src="dbscan_algo.png" alt="DBSCAN Algorithm" title="DBSCAN Algorithm" width="500">
-</div>
+![png](filtering_files/dbscan_algo.png)
 
 This algorithm has the following parameters, which determine the size of the resulting stops:
 * ```time_thresh```: Time threshold in minutes for identifying neighbors.
